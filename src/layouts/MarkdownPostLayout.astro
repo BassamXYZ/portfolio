@@ -7,7 +7,16 @@ const { frontmatter } = Astro.props;
   <p>{frontmatter.pubDate.slice(0, 10)}</p>
   <p><em>{frontmatter.description}</em></p>
   <p>written by: {frontmatter.author}</p>
-  <article>
+  <div>
+    {
+      frontmatter.tags.map((tag) => (
+        <p>
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+  <article class="prose prose-stone prose-h3:text-red">
     <slot />
   </article>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
+import "@fontsource/roboto";
 const { pageTitle } = Astro.props;
 ---
 
@@ -8,12 +9,13 @@ const { pageTitle } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.html" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body>
-    <Navigation />
+  <body class="bg-white dark:bg-black dark:text-white font-roboto">
+    <Header />
     <h1 class="text-3xl">{pageTitle}</h1>
     <slot />
     <Footer />
