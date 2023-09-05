@@ -1,5 +1,5 @@
 ---
-const { name, techs, link, img } = Astro.props;
+const { name, techs, img, github, demo } = Astro.props;
 ---
 
 <li
@@ -10,8 +10,11 @@ const { name, techs, link, img } = Astro.props;
   <ul class="flex flex-wrap justify-center items-center my-2">
     {techs.map((tech) => <li class="bg-teal-500 mt-1 ml-1 px-1">{tech}</li>)}
   </ul>
-  <a
-    href=`http://github/BassamXYZ/${link}`
-    class="text-teal-600 hover:text-blue-600">See it on github</a
-  >
+  <div class="flex items-end h-full">
+    <a
+      href=`http://github/BassamXYZ/${github}`
+      class="mx-3 p-1 text-teal-600 hover:text-blue-600">Github</a
+    >
+    {demo && <a href=`${demo}` class="mx-3 p-1 text-teal-600 hover:text-blue-600">Demo</a>}
+  </div>
 </li>
