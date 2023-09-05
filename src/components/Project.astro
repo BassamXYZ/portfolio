@@ -1,0 +1,17 @@
+---
+const { name, techs, link, img } = Astro.props;
+---
+
+<li
+  class="border border-teal-600 max-w-xl p-3 flex flex-col justify-center items-center"
+>
+  {img && <img src={img.url} alt={img.alt} />}
+  <h3 class="text-2xl text-teal-600 my-2">{name}</h3>
+  <ul class="flex flex-wrap justify-center items-center my-2">
+    {techs.map((tech) => <li class="bg-teal-500 mt-1 ml-1 px-1">{tech}</li>)}
+  </ul>
+  <a
+    href=`http://github/BassamXYZ/${link}`
+    class="text-teal-600 hover:text-blue-600">See it on github</a
+  >
+</li>

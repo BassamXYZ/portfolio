@@ -2,24 +2,54 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "@fontsource/roboto";
-const { pageTitle } = Astro.props;
+import "../all.min.css";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const { data } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<html lang="en">
+<html lang={lang} dir={t("direction")}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.html" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <meta name="title" content={data?.title} />
+    <meta name="description" content={data?.description} />
+    <meta name="keywords" content={data?.tags} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={data?.author} />
+    <meta name="url" content="http://bassam.netlify.app" />
+    <meta property="og:title" content={data?.title} />
+    <meta property="og:type" content={data?.pageType} />
+    <meta property="og:url" content="http://bassam.netlify.app" />
+    <meta property="og:image" content={data.image?.url} />
+    <meta property="og:image:alt" content={data.image?.alt} />
+    <meta property="og:description" content={data?.description} />
+    <meta property="og:site_name" content="Bassam Ahmad" />
+    <meta property="og:locale" content={lang == "ar" ? "ar_AR" : "en_US"} />
+    <meta
+      property="og:locale:alternate"
+      content={lang == "ar" ? "en_US" : "ar_AR"}
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@bassamxyz" />
+    <meta name="twitter:title" content={data?.title} />
+    <meta name="twitter:description" content={data?.description} />
+    <meta name="twitter:image" content={data.image?.url} />
+    <meta name="twitter:image:alt" content={data.image?.alt} />
+    <title>{data.title}</title>
   </head>
-  <body class="bg-white dark:bg-black dark:text-white font-roboto">
+  <body
+    class="md:container mx-auto bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-roboto text-lg"
+  >
     <Header />
-    <h1 class="text-3xl">{pageTitle}</h1>
-    <div class="prose prose-xl prose-h3:text-red-500">
+    <main class="px-5 pt-5">
       <slot />
-    </div>
+    </main>
+    <hr class="border-teal-600 m-5" />
     <Footer />
   </body>
 </html>

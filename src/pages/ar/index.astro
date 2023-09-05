@@ -1,0 +1,121 @@
+---
+import Contact from "../../components/Contact.astro";
+import Project from "../../components/Project.astro";
+import Skills from "../../components/Skills.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const data = {
+  title: "بسام أحمد",
+  pageType: "website",
+  description: "مطور مواقع",
+  tags: [
+    "مبرمج",
+    "برمجة مواقع",
+    "بايثون",
+    "جافاسكربت",
+    "مطور مواقع",
+    "برمجة",
+    "Frontend",
+    "Backend",
+    "Python",
+    "JavaScript",
+    "C++",
+    "C",
+    "React",
+    "Astro",
+    "Nextjs",
+    "Tailwind",
+    "Flask",
+    "REST API",
+    "GraphQL",
+    "SQL",
+    "Mongodb",
+    "Git",
+    "Problem solving",
+  ],
+  author: "بسام أحمد",
+};
+---
+
+<BaseLayout data={data}>
+  <h1 class="text-5xl text-teal-600 mt-5">بسام احمد</h1>
+  <section>
+    <h2 class="text-2xl my-2 px-3">مطور مواقع.</h2>
+    <p class="px-3">أتطلع لزيادة خبرتي وبناء منتجات مميزة.</p>
+    <hr class="max-w-sm border-teal-600 mt-2 mb-5" />
+  </section>
+  <section>
+    <h2 class="text-4xl text-teal-600">أعمالي</h2>
+    <ul
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-3"
+    >
+      <Project
+        name="محادثة بالوقت الحقيقي"
+        techs={["React", "Supabase"]}
+        link="chat-app"
+      />
+      <Project
+        name="تطبيق ملاحظات"
+        techs={[
+          "Flask",
+          "FlaskRestful",
+          "FlaskSqlalchemy",
+          "React",
+          "ReactFormHook",
+          "ReactQuery",
+        ]}
+        link="note-app"
+      />
+      <Project
+        name="مقصر روابط"
+        techs={["Flask", "FlaskSqlalchemy", "FlaskQrcoder"]}
+        link="url-shortener"
+      />
+      <Project
+        name="متجر الكتروني"
+        techs={["Flask", "FlaskMongo", "GraphQL", "NextJS", "ChartJS"]}
+        link="e-commerce"
+      />
+      <Project
+        name="بوت ديسكورد لأنشاء كيو-آر كود"
+        techs={["DiscordJS"]}
+        link="qrcoder-discord-bot"
+      />
+    </ul>
+    <a
+      href="http://github/BassamXYZ"
+      class="px-3 text-teal-600 hover:text-blue-600"
+      >لمزيد من المشاريع , زر حسابي على Github.</a
+    >
+    <hr class="max-w-sm border-teal-600 mt-2 mb-5" />
+  </section>
+  <section>
+    <h2 class="text-4xl text-teal-600">مهاراتي</h2>
+    <Skills
+      skills={[
+        "Frontend",
+        "Backend",
+        "Python",
+        "JavaScript",
+        "C++",
+        "C",
+        "React",
+        "Astro",
+        "Nextjs",
+        "Tailwind",
+        "Flask",
+        "REST API",
+        "GraphQL",
+        "SQL",
+        "Mongodb",
+        "Git",
+        "Problem solving",
+      ]}
+    />
+    <hr class="max-w-sm border-teal-600 mt-2 mb-5" />
+  </section>
+  <section>
+    <h2 class="text-4xl text-weight-800 text-teal-600">للتواصل</h2>
+    <Contact />
+  </section>
+</BaseLayout>

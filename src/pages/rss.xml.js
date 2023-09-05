@@ -6,6 +6,5 @@ export async function get() {
     description: 'My portfolio',
     site: 'https://my-blog-site.netlify.app',
     items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
-    customData: `<language>en-us</language>`,
   });
 }

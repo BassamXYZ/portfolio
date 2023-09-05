@@ -1,9 +1,33 @@
 ---
-import Social from './Social.astro';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Credits from "./Credits.astro";
+import Social from "./Social.astro";
+
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
 ---
 
-<footer class="text-3sm">
-  <Social platform="twitter" username="bassam-xyz" />
-  <Social platform="instagram" username="bassamxyz" />
-  <Social platform="github" username="BassamXYZ" />
+<footer class="flex flex-col justify-center items-center">
+  <a
+    href="mailto:bassam.essam.ahmad@gmail.com"
+    class="text-teal-600 hover:text-blue-600 m-3"
+    >bassam.essam.ahmad@gmail.com</a
+  >
+  <div class="mb-5">
+    <Social
+      url={"https://www.instagram.com/bassamxyz"}
+      icon={"fa-brands fa-instagram"}
+    />
+    <Social
+      url={"https://www.twitter.com/Bassam_XYZ"}
+      icon={"fa-brands fa-twitter"}
+    />
+    <Social
+      url={"https://www.linkedin.com/in/bassam-ahmad-5b8639237"}
+      icon={"fa-brands fa-linkedin"}
+    />
+  </div>
+  {t("credits")}
+  <hr class="mx-auto w-20 border-teal-600" />
+  <Credits />
 </footer>

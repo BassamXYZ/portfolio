@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+
+export async function getStaticPaths({ paginate }) {
+  const allLanguages = ["ar", "en"];
+  const pages = await getCollection("blog");
+
+  return allLanguages.map((lang) => {
+    const filteredPosts = pages.filter((page) => {
+      const [postLang, ...slug] = page.slug.split("/");
+      if (postLang == lang) {
+        return page;
+      }
+    });
+    return paginate(filteredPosts, { params: { lang }, pageSize: 12 });
+  });
+}
+
+const { page } = Astro.props;
+const params = Astro.params;
+
+const t = useTranslations(params.lang);
+
+const data = {
+  title: params.lang == "ar" ? "المدونة" : "Blog",
+  pageType: "website",
+  description:
+    params.lang == "ar"
+      ? "مدونة شخصية لمبرمج جديد"
+      : "Personal blog for a new programmer",
+  tags:
+    params.lang == "ar"
+      ? ["مدونة", "مدونة شخصية", "برمجة", "رياضات"]
+      : ["blog", "personal blog", "math", "programming"],
+  author: params.lang == "ar" ? "بسام أحمد" : "Bassam Ahmad",
+};
+---
+
+<BaseLayout data={data}>
+  {
+    (page.url.next || page.url.prev) && (
+      <div class="max-w-xl m-5 mx-auto relative h-10">
+        {page.url.next && (
+          <a
+            href={page.url.next}
+            class={`border border-teal-600 h-10 p-2 absolute ${
+              params.lang == "ar" ? "left-0" : "right-0"
+            } text-center`}
+          >
+            {t("next")}
+          </a>
+        )}
+        {page.url.prev && (
+          <a
+            href={page.url.prev}
+            class={`border border-teal-600 h-10 p-2 absolute ${
+              params.lang == "ar" ? "right-0" : "left-0"
+            } text-center`}
+          >
+            {t("prev")}
+          </a>
+        )}
+      </div>
+    )
+  }
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-auto"
+  >
+    {
+      page.data.map((post) => (
+        <div class="border border-teal-600 max-w-xl">
+          <div class="m-2 flex justify-center">
+            <img
+              src=`${post.data.image.src}`
+              alt={post.data.image.alt}
+              class="w-full"
+            />
+          </div>
+          <p class="mx-5">{post.data.date}</p>
+          <h2 class="text-2xl m-5 mt-2 text-teal-600 hover:text-blue-600">
+            <a href={`blog/${post.data.title}`}>{post.data.title}</a>
+          </h2>
+        </div>
+      ))
+    }
+  </div>
+  {
+    !page.data[0] && (
+      <h2 class="text-center text-2xl">
+        {params.lang == "ar" ? "لا يوجد شيء هنا بعد" : "Nothing here yet"}
+      </h2>
+    )
+  }
+  {
+    (page.url.next || page.url.prev) && (
+      <div class="max-w-xl m-5 mx-auto relative h-10">
+        {page.url.next && (
+          <a
+            href={page.url.next}
+            class={`border border-teal-600 h-10 p-2 absolute ${
+              params.lang == "ar" ? "left-0" : "right-0"
+            } text-center`}
+          >
+            {t("next")}
+          </a>
+        )}
+        {page.url.prev && (
+          <a
+            href={page.url.prev}
+            class={`border border-teal-600 h-10 p-2 absolute ${
+              params.lang == "ar" ? "right-0" : "left-0"
+            } text-center`}
+          >
+            {t("prev")}
+          </a>
+        )}
+      </div>
+    )
+  }
+</BaseLayout>

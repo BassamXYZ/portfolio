@@ -9,8 +9,8 @@ module.exports = {
 				'roboto': ['Roboto', 'sans-serif'],
 			}
 		},
-		plugins: [
-			require('@tailwindcss/typography'),
-		],
 	},
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 };

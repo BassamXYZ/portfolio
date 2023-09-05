@@ -1,5 +1,8 @@
 ---
-const { platform, username } = Astro.props;
+const { url, icon, username } = Astro.props;
 ---
 
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<a href={url} class="text-teal-600 hover:text-blue-600 m-3">
+  <i class={icon}></i>
+  {username}
+</a>

@@ -1,11 +1,44 @@
 ---
+import { languages } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import ThemeIcon from "./ThemeIcon.astro";
+
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
+const url = Astro.url.pathname.slice(3);
 ---
 
-<header>
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/blog">Blog</a>
-  <a href="/tags">Tags</a>
-  <ThemeIcon />
+<header
+  class="border border-teal-600 border-t-0 p-3 px-5 flex flex-col sm:flex-row justify-between items-center border border-teal-600"
+>
+  <h1>
+    <a href=`/${pageLang}/` class="text-2xl">{t("name")}</a>
+  </h1>
+  <div class="flex justify-center">
+    <ThemeIcon />
+    {
+      Object.entries(languages).map(([lang, label]) => {
+        if (pageLang != lang) {
+          return (
+            <a
+              href={`/${lang + Astro.url.pathname.slice(3, 8)}`}
+              class="text-teal-600 hover:text-blue-600 mx-5"
+            >
+              {label}
+            </a>
+          );
+        }
+      })
+    }
+    <a
+      href=`/${pageLang}/`
+      class=`text-teal-600 hover:text-blue-600 mx-2 ${(url=='/' || !url) && 'underline'}`
+      >{t("nave.home")}</a
+    >
+    <a
+      href=`/${pageLang}/blog`
+      class=`text-teal-600 hover:text-blue-600 mx-2 ${url.slice(0,5)=='/blog' && 'underline'}`
+      >{t("nave.blog")}</a
+    >
+  </div>
 </header>

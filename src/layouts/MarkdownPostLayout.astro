@@ -1,22 +1,15 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
+const { data } = Astro.props;
+data.pageType = "article";
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.slice(0, 10)}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>written by: {frontmatter.author}</p>
-  <div>
-    {
-      frontmatter.tags.map((tag) => (
-        <p>
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
-  </div>
-  <article class="prose prose-xl prose-h3:text-red-500">
+<BaseLayout data={data}>
+  <p>{data.date.slice(0, 10)}</p>
+  <p><em>{data.description}</em></p>
+  <article
+    class="prose prose-lg dark:prose-invert prose-headings:text-teal-600 prose-a:text-teal-600 hover:prose-a:text-blue-600 prose-hr:border-teal-600 prose-blockquote:border-teal-600 marker:text-teal-600 prose-thead:border-teal-600 prose-tr:border-teal-600"
+  >
     <slot />
   </article>
 </BaseLayout>
