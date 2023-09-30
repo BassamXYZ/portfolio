@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://my-blog-site.netlify.app
+Sitemap: https://bassamahmad.netlify.app
