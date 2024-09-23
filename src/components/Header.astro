@@ -21,7 +21,7 @@ const url = Astro.url.pathname.slice(3);
         if (pageLang != lang) {
           return (
             <a
-              href={`/${lang + Astro.url.pathname.slice(3, 8)}`}
+              href={`/${lang + url}`}
               class="text-teal-600 hover:text-blue-600 mx-5"
             >
               {label}
