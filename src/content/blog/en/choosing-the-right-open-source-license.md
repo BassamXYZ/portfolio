@@ -6,11 +6,13 @@ description: "A Guide for Developers to Choose the Right Open Source License for
 author: "Bassam Ahmad"
 tags: ["development", "open source"]
 image: {
-  url: "choosing-the-right-open-source-license.avif",
+  url: "/choosing-the-right-open-source-license.avif",
   alt: "main post image: a justice scale with words 'Open source'"
 }
 ---
 # **Choosing the Right Open Source License: A Guide for Developers**
+
+![main post image: a justice scale with words 'Open source'](/choosing-the-right-open-source-license.avif)
 
 So, you’ve just built an awesome open source project. Maybe it’s a slick new JavaScript library, a game-changing CLI tool, or even the next big framework. But hold on—before you hit “publish,” there’s one critical question to answer: *What license should you use?*  
 
