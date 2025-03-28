@@ -21,10 +21,10 @@ const t = useTranslations(lang);
     <meta name="keywords" content={data?.tags} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content={data?.author} />
-    <meta name="url" content="http://bassam.netlify.app" />
+    <meta name="url" content={Astro.url} />
     <meta property="og:title" content={data?.title} />
     <meta property="og:type" content={data?.pageType} />
-    <meta property="og:url" content="http://bassam.netlify.app" />
+    <meta property="og:url" content={Astro.url} />
     <meta property="og:image" content={data.image?.url} />
     <meta property="og:image:alt" content={data.image?.alt} />
     <meta property="og:description" content={data?.description} />
