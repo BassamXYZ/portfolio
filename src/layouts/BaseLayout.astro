@@ -23,7 +23,6 @@ const t = useTranslations(lang);
     <meta name="robots" content="index, follow" />
     <meta name="author" content={data?.author} />
     <meta name="url" content={Astro.url} />
-    <meta property="article:published_time" content={data?.date} />
 
     <meta property="og:title" content={data?.title} />
     <meta property="og:type" content={data?.pageType} />
@@ -42,6 +41,7 @@ const t = useTranslations(lang);
       property="og:locale:alternate"
       content={lang == "ar" ? "en_US" : "ar_AR"}
     />
+    <meta name="publish_date" property="og:publish_date" content={data?.date} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@bassamxyz" />
     <meta name="twitter:title" content={data?.title} />

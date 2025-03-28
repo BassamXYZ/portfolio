@@ -6,13 +6,13 @@ description: "دليل للمطورين لاختيار الرخصة المفتو
 author: "بسام أحمد"
 tags: ["development", "open source"]
 image: {
-  url: "choosing-the-right-open-source-license.avif",
+  url: "choosing-the-right-open-source-license.webp",
   alt: "صورة المنشور الرئيسية الرئيسية: مسزان العدالة مع كتابة 'Open Source' أمامه"
 }
 ---
 # **اختيار الرخصة المفتوحة المصدر المناسبة: دليل للمطورين**  
 
-![صورة المنشور الرئيسية الرئيسية: مسزان العدالة مع كتابة 'Open Source' أمامه](/choosing-the-right-open-source-license.avif)
+![صورة المنشور الرئيسية الرئيسية: مسزان العدالة مع كتابة 'Open Source' أمامه](/choosing-the-right-open-source-license.webp)
 
 هل انتهيت للتو من بناء مشروع مفتوح المصدر رائع؟ ربما تكون مكتبة جافا سكريبت جديدة، أو أداة CLI ثورية، أو حتى إطار عمل قد يكون الأضخم مستقبلًا. لكن انتظر! قبل النقر على زر "النشر"، هناك سؤال حاسم يجب الإجابة عليه: *ما الرخصة التي يجب استخدامها؟*  
 
