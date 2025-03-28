@@ -25,7 +25,7 @@ const t = useTranslations(lang);
     <meta property="og:title" content={data?.title} />
     <meta property="og:type" content={data?.pageType} />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={data.image?.url} />
+    <meta property="og:image" content={Astro.site + data.image?.url} />
     <meta property="og:image:alt" content={data.image?.alt} />
     <meta property="og:description" content={data?.description} />
     <meta property="og:site_name" content="Bassam Ahmad" />
