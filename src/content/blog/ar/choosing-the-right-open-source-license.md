@@ -6,7 +6,7 @@ description: "دليل للمطورين لاختيار الرخصة المفتو
 author: "بسام أحمد"
 tags: ["development", "open source"]
 image: {
-  url: "/choosing-the-right-open-source-license.avif",
+  url: "choosing-the-right-open-source-license.avif",
   alt: "صورة المنشور الرئيسية الرئيسية: مسزان العدالة مع كتابة 'Open Source' أمامه"
 }
 ---

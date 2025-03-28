@@ -6,7 +6,7 @@ description: "A Guide for Developers to Choose the Right Open Source License for
 author: "Bassam Ahmad"
 tags: ["development", "open source"]
 image: {
-  url: "/choosing-the-right-open-source-license.avif",
+  url: "choosing-the-right-open-source-license.avif",
   alt: "main post image: a justice scale with words 'Open source'"
 }
 ---
