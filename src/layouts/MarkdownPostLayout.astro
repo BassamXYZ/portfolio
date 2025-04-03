@@ -5,10 +5,9 @@ data.pageType = "article";
 ---
 
 <BaseLayout data={data}>
-  <p>{data.date.slice(0, 10)}</p>
-  <p><em>{data.description}</em></p>
+  <p class="max-w-5xl m-auto"><time>{data.date.slice(0, 10)}</time></p>
   <article
-    class="prose prose-lg dark:prose-invert prose-headings:text-teal-600 prose-a:text-teal-600 hover:prose-a:text-blue-600 prose-hr:border-teal-600 prose-blockquote:border-teal-600 marker:text-teal-600 prose-thead:border-teal-600 prose-tr:border-teal-600"
+    class="prose prose-lg max-w-5xl m-auto dark:prose-invert prose-headings:text-teal-600 prose-a:text-teal-600 hover:prose-a:text-blue-600 prose-hr:border-teal-600 prose-blockquote:border-teal-600 marker:text-teal-600 prose-thead:border-teal-600 prose-tr:border-teal-600"
   >
     <slot />
   </article>

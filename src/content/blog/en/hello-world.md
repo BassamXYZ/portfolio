@@ -1,7 +1,7 @@
 ---
 url: "hello-world"
 title: "Hello World"
-date: "23/9/2024"
+date: "2024-09-23T12:00:00+03:00"
 description: "First post on this blog"
 author: "Bassam Ahmad"
 tags: ["development"]
