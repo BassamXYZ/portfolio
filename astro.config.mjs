@@ -5,7 +5,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bassamahmad.netlify.app',
+  site: 'https://bassamahmad.com',
   integrations: [tailwind(), sitemap({
     entryLimit: 10000,
     i18n: {

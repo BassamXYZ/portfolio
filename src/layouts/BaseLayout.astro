@@ -23,6 +23,18 @@ const t = useTranslations(lang);
     <meta name="robots" content="index, follow" />
     <meta name="author" content={data?.author} />
     <meta name="url" content={Astro.url} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={`https//bassamahmad.com/${lang}/rss.xml`}
+      title={lang === "ar" ? "اخر المقالات" : "Latest Posts"}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={`https//bassamahmad.com/${lang === "ar" ? "en" : "ar"}/rss.xml`}
+      title={lang === "ar" ? "English Articles" : "المقالات العربية"}
+    />
 
     <meta property="og:title" content={data?.title} />
     <meta property="og:type" content={data?.pageType} />

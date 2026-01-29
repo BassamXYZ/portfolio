@@ -9,9 +9,8 @@ const t = useTranslations(pageLang);
 
 <footer class="flex flex-col justify-center items-center">
   <a
-    href="mailto:bassam.essam.ahmad@gmail.com"
-    class="text-teal-600 hover:text-blue-600 m-3"
-    >bassam.essam.ahmad@gmail.com</a
+    href="mailto:contact@bassamahmad.com"
+    class="text-teal-600 hover:text-blue-600 m-3">contact@bassamahmad.com</a
   >
   <div class="mb-5">
     <Social
@@ -23,8 +22,14 @@ const t = useTranslations(pageLang);
       icon={"fa-brands fa-twitter"}
     />
     <Social
-      url={"https://www.linkedin.com/in/bassam-ahmad-5b8639237"}
+      url={"https://www.linkedin.com/in/bassam-essam-ahmad"}
       icon={"fa-brands fa-linkedin"}
+    />
+    <Social
+      url={pageLang === "ar"
+        ? "https://bassamahmad.com/ar/rss.xml"
+        : "https://bassamahmad.com/en/rss.xml"}
+      icon={"fas fa-rss"}
     />
   </div>
   {t("credits")}
