@@ -1,6 +1,6 @@
 ---
 url: "choosing-the-right-open-source-license"
-title: "hoosing the Right Open Source License: A Guide for Developers"
+title: "Choosing the Right Open Source License: A Guide for Developers"
 date: "2025-03-27T12:00:00+03:00"
 description: "A Guide for Developers to Choose the Right Open Source License for thair next projects."
 author: "Bassam Ahmad"
