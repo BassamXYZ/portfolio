@@ -1,88 +1,84 @@
 ---
-import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 import Header from "../components/Header.astro";
-import "@fontsource/roboto";
-import "../all.min.css";
+import Footer from "../components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { date } from "astro/zod";
+import { person } from "../data/site";
+
+interface Props {
+  data: {
+    title: string;
+    description: string;
+    pageType?: "website" | "article";
+    tags?: string[];
+    author?: string;
+    image?: { url: string; alt: string };
+  };
+}
+
 const { data } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
+
+const siteTitle = `${data.title} | ${t("name")}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(
+  data.image?.url || "/images/og-default.svg",
+  Astro.site,
+).toString();
 ---
 
-<html lang={lang} dir={t("direction")}>
+<!doctype html>
+<html lang={pageLang} dir={t("direction")} class="dark">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <link rel="sitemap" href="/sitemap-index.html" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="title" content={data?.title} />
-    <meta name="description" content={data?.description} />
-    <meta name="keywords" content={data?.tags} />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content={data?.author} />
-    <meta name="url" content={Astro.url} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link
       rel="alternate"
       type="application/rss+xml"
-      href={`https//bassamahmad.com/${lang}/rss.xml`}
-      title={lang === "ar" ? "اخر المقالات" : "Latest Posts"}
+      title={t("name")}
+      href={`https://bassamahmad.com/${pageLang}/rss.xml`}
     />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      href={`https//bassamahmad.com/${lang === "ar" ? "en" : "ar"}/rss.xml`}
-      title={lang === "ar" ? "English Articles" : "المقالات العربية"}
-    />
+    <link rel="canonical" href={canonicalURL} />
 
-    <meta property="og:title" content={data?.title} />
-    <meta property="og:type" content={data?.pageType} />
-    <meta property="og:url" content={Astro.url} />
-    <meta
-      name="image"
-      property="og:image"
-      content={Astro.site + data.image?.url}
-    />
-    <meta property="og:image:alt" content={data.image?.alt} />
-    <meta property="og:description" content={data?.description} />
-    <meta property="og:site_name" content="Bassam Ahmad" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={data.description} />
+    {data.tags && <meta name="keywords" content={data.tags.join(", ")} />}
+    <meta name="author" content={data.author || t("name")} />
 
-    <meta property="og:locale" content={lang == "ar" ? "ar_AR" : "en_US"} />
-    <meta
-      property="og:locale:alternate"
-      content={lang == "ar" ? "en_US" : "ar_AR"}
-    />
-    <meta name="publish_date" property="og:publish_date" content={data?.date} />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@bassamxyz" />
-    <meta name="twitter:title" content={data?.title} />
-    <meta name="twitter:description" content={data?.description} />
-    <meta name="twitter:image" content={data.image?.url} />
-    <meta name="twitter:image:alt" content={data.image?.alt} />
+    <meta property="og:type" content={data.pageType || "website"} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={data.description} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={data.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:site" content="@Bassam_XYZ" />
+
     <script
-      type="text/partytown"
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-C9CWQENM3R"
-    ></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-C9CWQENM3R");
-    </script>
-    <title>{data.title}</title>
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Bassam Ahmad",
+        url: "https://bassamahmad.com/",
+        email: `mailto:${person.email}`,
+        jobTitle: "Mechatronics Engineer",
+        sameAs: Object.values(person.social),
+      })}
+    />
   </head>
-  <body
-    class="md:container mx-auto bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-roboto text-lg"
-  >
+  <body class="min-h-screen flex flex-col">
     <Header />
-    <main class="px-5 pt-5">
+    <main class="flex-1 w-full px-5 sm:px-8 py-12">
       <slot />
     </main>
-    <hr class="border-teal-600 m-5" />
     <Footer />
   </body>
 </html>

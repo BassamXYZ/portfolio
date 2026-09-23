@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  project: any;
+}
+const { project } = Astro.props;
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
+const p = project.data;
+---
+
+<a
+  href={`/${pageLang}/projects/${p.url}/`}
+  class="group panel overflow-hidden flex flex-col sm:flex-row hover:border-signal transition-colors"
+>
+  <div class="sm:w-2/5 aspect-video sm:aspect-auto shrink-0 overflow-hidden bg-panel-2">
+    <img
+      src={p.image.url}
+      alt={p.image.alt}
+      loading="lazy"
+      class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+    />
+  </div>
+  <div class="p-6 flex flex-col gap-3">
+    {p.role && <p class="label">{p.role}</p>}
+    <h3 class="text-xl font-semibold group-hover:text-signal transition-colors">
+      {p.title}
+    </h3>
+    <p class="text-muted text-sm">{p.summary}</p>
+
+    {
+      p.metrics && p.metrics.length > 0 && (
+        <div class="flex flex-wrap gap-x-6 gap-y-2 mt-1">
+          {p.metrics.map((m: { label: string; value: string }) => (
+            <div>
+              <p class="font-mono text-sm text-signal">{m.value}</p>
+              <p class="label">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="flex flex-wrap gap-2 mt-auto pt-3">
+      {p.stack.slice(0, 5).map((s: string) => <span class="tag">{s}</span>)}
+    </div>
+  </div>
+</a>

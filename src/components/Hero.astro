@@ -1,0 +1,57 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { hero, person } from "../data/site";
+
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
+const h = hero[pageLang];
+---
+
+<section class="max-w-6xl mx-auto grid lg:grid-cols-[1.6fr_1fr] gap-10 items-start py-10">
+  <div>
+    <p class="label mb-4">{t("name")}</p>
+    <h1 class="text-4xl sm:text-5xl font-semibold leading-tight tracking-tight text-balance">
+      {h.headline}
+    </h1>
+    <p class="mt-6 text-lg text-muted max-w-[52ch]">{h.subhead}</p>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      {h.focus.map((f: string) => <span class="tag">{f}</span>)}
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href={`/${pageLang}/projects/`} class="btn btn-primary">
+        {t("cta.viewProjects")}
+      </a>
+      <a href={person.cvPath} class="btn"> {t("cta.downloadCv")} </a>
+      <a href={`mailto:${person.email}`} class="btn"> {t("cta.contact")} </a>
+    </div>
+  </div>
+
+  <div class="panel p-5 font-mono text-sm">
+    <p class="label mb-3">STATUS</p>
+    <dl class="space-y-3">
+      <div class="flex items-start gap-2">
+        <span class="w-2 h-2 rounded-full bg-ok mt-1.5 shrink-0"></span>
+        <div>
+          <dt class="text-muted text-xs">availability</dt>
+          <dd class="text-paper">{h.status}</dd>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="w-2 h-2 rounded-full bg-signal mt-1.5 shrink-0"></span>
+        <div>
+          <dt class="text-muted text-xs">seeking</dt>
+          <dd class="text-paper">{h.availability}</dd>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="w-2 h-2 rounded-full bg-muted mt-1.5 shrink-0"></span>
+        <div>
+          <dt class="text-muted text-xs">next</dt>
+          <dd class="text-paper">{h.education}</dd>
+        </div>
+      </div>
+    </dl>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#161B22"/>
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#2A323D"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#dots)"/>
+  <!-- mobile base -->
+  <rect x="150" y="330" width="180" height="90" rx="6" fill="none" stroke="#8A96A3" stroke-width="2"/>
+  <circle cx="185" cy="430" r="14" fill="none" stroke="#8A96A3" stroke-width="2"/>
+  <circle cx="295" cy="430" r="14" fill="none" stroke="#8A96A3" stroke-width="2"/>
+  <!-- soft arm, drawn as a wavy compliant curve -->
+  <path d="M 240 330 C 230 260 300 240 280 180 C 265 130 340 120 330 70" fill="none" stroke="#FF8A3D" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="330" cy="70" r="8" fill="#FF8A3D"/>
+  <!-- target marker (ArUco style) -->
+  <g transform="translate(560,150)">
+    <rect x="0" y="0" width="90" height="90" fill="#ECEFF3"/>
+    <rect x="10" y="10" width="20" height="20" fill="#0E1116"/>
+    <rect x="60" y="10" width="20" height="20" fill="#0E1116"/>
+    <rect x="10" y="60" width="20" height="20" fill="#0E1116"/>
+    <rect x="35" y="35" width="20" height="20" fill="#0E1116"/>
+  </g>
+  <line x1="330" y1="90" x2="560" y2="180" stroke="#6FCF97" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="40" y="460" font-family="IBM Plex Mono, monospace" font-size="14" fill="#8A96A3">amr / soft-arm -- add render or hardware photo here</text>
+</svg>

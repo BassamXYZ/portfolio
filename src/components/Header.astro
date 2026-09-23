@@ -1,44 +1,61 @@
 ---
 import { languages } from "../i18n/ui";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import ThemeIcon from "./ThemeIcon.astro";
 
 const pageLang = getLangFromUrl(Astro.url);
 const t = useTranslations(pageLang);
-const url = Astro.url.pathname.slice(3);
+const url = Astro.url.pathname.slice(3) || "/";
+
+const navItems = [
+  { href: "", key: "nav.home" as const },
+  { href: "projects/", key: "nav.projects" as const },
+  { href: "blog/", key: "nav.blog" as const },
+  { href: "about/", key: "nav.about" as const },
+];
+
+function isActive(href: string) {
+  if (href === "") return url === "/";
+  return url.startsWith(`/${href}`);
+}
 ---
 
 <header
-  class="border border-teal-600 border-t-0 p-3 px-5 flex flex-col sm:flex-row justify-between items-center border border-teal-600"
+  class="border-b border-line sticky top-0 z-20 bg-ink/90 backdrop-blur"
 >
-  <h1>
-    <a href=`/${pageLang}/` class="text-2xl">{t("name")}</a>
-  </h1>
-  <div class="flex justify-center">
-    <ThemeIcon />
-    {
-      Object.entries(languages).map(([lang, label]) => {
-        if (pageLang != lang) {
-          return (
-            <a
-              href={`/${lang + url}`}
-              class="text-teal-600 hover:text-blue-600 mx-5"
-            >
-              {label}
-            </a>
-          );
-        }
-      })
-    }
-    <a
-      href=`/${pageLang}/`
-      class=`text-teal-600 hover:text-blue-600 mx-2 ${(url=='/' || !url) && 'underline'}`
-      >{t("nave.home")}</a
-    >
-    <a
-      href=`/${pageLang}/blog/`
-      class=`text-teal-600 hover:text-blue-600 mx-2 ${url.slice(0,5)=='/blog' && 'underline'}`
-      >{t("nave.blog")}</a
-    >
+  <div
+    class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex flex-wrap gap-4 justify-between items-center"
+  >
+    <a href={`/${pageLang}/`} class="font-semibold text-lg tracking-tight">
+      {t("name")}
+    </a>
+    <nav class="flex items-center gap-1 label">
+      {
+        navItems.map((item) => (
+          <a
+            href={`/${pageLang}/${item.href}`}
+            class={`px-3 py-1.5 rounded-md transition-colors hover:text-signal ${
+              isActive(item.href) ? "text-signal" : "text-muted"
+            }`}
+          >
+            {t(item.key)}
+          </a>
+        ))
+      }
+      <span class="w-px h-4 bg-line mx-2" aria-hidden="true"></span>
+      {
+        Object.entries(languages).map(([lang, label]) => {
+          if (pageLang !== lang) {
+            return (
+              <a
+                href={`/${lang}${url}`}
+                class="px-3 py-1.5 rounded-md text-muted hover:text-signal transition-colors"
+              >
+                {label}
+              </a>
+            );
+          }
+        })
+      }
+    </nav>
   </div>
 </header>

@@ -1,112 +1,69 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import { useTranslations } from "../../../i18n/utils";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
   const allLanguages = ["ar", "en"];
-  const pages = await getCollection("blog");
+  const posts = await getCollection("blog");
 
-  return allLanguages.map((lang) => {
-    const filteredPosts = pages.filter((page) => {
-      const [postLang, ...slug] = page.slug.split("/");
-      if (postLang == lang) {
-        return page;
-      }
-    });
-    return paginate(filteredPosts, { params: { lang }, pageSize: 12 });
+  return allLanguages.flatMap((lang) => {
+    const filtered = posts
+      .filter((post) => post.id.startsWith(`${lang}/`))
+      .sort(
+        (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+      );
+    return paginate(filtered, { params: { lang }, pageSize: 12 });
   });
 }
 
-const { page } = Astro.props;
-const params = Astro.params;
-
-const t = useTranslations(params.lang);
+const { page } = Astro.props as any;
+const { lang } = Astro.params as { lang: "en" | "ar" };
+const t = useTranslations(lang);
 
 const data = {
-  title: params.lang == "ar" ? "المدونة" : "Blog",
-  pageType: "website",
+  title: t("nav.blog"),
   description:
-    params.lang == "ar"
-      ? "مدونة شخصية لمبرمج جديد"
-      : "Personal blog for a new programmer",
-  tags:
-    params.lang == "ar"
-      ? ["مدونة", "مدونة شخصية", "برمجة", "رياضات"]
-      : ["blog", "personal blog", "math", "programming"],
-  author: params.lang == "ar" ? "بسام أحمد" : "Bassam Ahmad",
+    lang === "ar"
+      ? "مدونة شخصية عن البرمجة والرياضيات والتكنولوجيا."
+      : "Personal blog about programming, math, and technology.",
+  author: t("name"),
 };
 ---
 
 <BaseLayout data={data}>
-  {
-    (page.url.next || page.url.prev) && (
-      <div class="max-w-xl m-5 mx-auto relative h-10">
-        {page.url.next && (
-          <a
-            href={page.url.next}
-            class={`border border-teal-600 h-10 p-2 absolute ${
-              params.lang == "ar" ? "left-0" : "right-0"
-            } text-center`}
-          >
-            {t("next")}
-          </a>
-        )}
-        {page.url.prev && (
-          <a
-            href={page.url.prev}
-            class={`border border-teal-600 h-10 p-2 absolute ${
-              params.lang == "ar" ? "right-0" : "left-0"
-            } text-center`}
-          >
-            {t("prev")}
-          </a>
-        )}
-      </div>
-    )
-  }
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-auto"
-  >
+  <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-10">
+    {t("nav.blog")}
+  </h1>
+
+  <div class="max-w-3xl mx-auto grid gap-4">
     {
-      page.data.map((post) => (
-        <div class="border border-teal-600 max-w-xl">
-          <div class="m-2 flex justify-center">
-            <img
-              src={"/" + post.data.image.url}
-              alt={post.data.image.alt}
-              class="w-full"
-            />
-          </div>
-          <p class="mx-5">{post.data.date}</p>
-          <h2 class="text-2xl m-5 mt-2 text-teal-600 hover:text-blue-600">
-            <a href={`${post.data.url}`}>{post.data.title}</a>
-          </h2>
-        </div>
+      page.data.map((post: any) => (
+        <a
+          href={`/${lang}/blog/${post.id.split("/")[1]}/`}
+          class="panel p-5 flex flex-col gap-2 hover:border-signal transition-colors"
+        >
+          <p class="label">{post.data.date.slice(0, 10)}</p>
+          <h2 class="text-xl font-semibold">{post.data.title}</h2>
+          <p class="text-muted text-sm">{post.data.description}</p>
+        </a>
       ))
     }
   </div>
+
   {
     (page.url.next || page.url.prev) && (
-      <div class="max-w-xl m-5 mx-auto relative h-10">
-        {page.url.next && (
-          <a
-            href={page.url.next}
-            class={`border border-teal-600 h-10 p-2 absolute ${
-              params.lang == "ar" ? "left-0" : "right-0"
-            } text-center`}
-          >
-            {t("next")}
-          </a>
-        )}
-        {page.url.prev && (
-          <a
-            href={page.url.prev}
-            class={`border border-teal-600 h-10 p-2 absolute ${
-              params.lang == "ar" ? "right-0" : "left-0"
-            } text-center`}
-          >
+      <div class="max-w-3xl mx-auto flex justify-between mt-8">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="btn">
             {t("prev")}
+          </a>
+        ) : (
+          <span />
+        )}
+        {page.url.next && (
+          <a href={page.url.next} class="btn">
+            {t("next")}
           </a>
         )}
       </div>

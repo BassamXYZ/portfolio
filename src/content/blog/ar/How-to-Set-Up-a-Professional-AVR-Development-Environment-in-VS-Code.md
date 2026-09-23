@@ -6,13 +6,13 @@ description: "دليل للمطورين لإعداد بيئة تطوير احت�
 author: "Bassam Ahmad"
 tags: ["تطوير", "AVR", "متحكمات صغرية", "VS Code", "أنظمة مدمجة"]
 image: {
-  url: "avr-with-vscode.webp",
+  url: "/images/avr-with-vscode.webp",
   alt: "صورة الغلاف: شاشة حاسب تظهر VS Code و Arduino IDE"
 }
 ---
 # كيف اقوم بإعداد بيئة تطوير احترافية لـمتحكمات AVR في VS Code
 
-![صورة الغلاف: شاشة حاسب تظهر VS Code و Arduino IDE](/avr-with-vscode.webp)
+![صورة الغلاف: شاشة حاسب تظهر VS Code و Arduino IDE](/images/avr-with-vscode.webp)
 
 ---
 

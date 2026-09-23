@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@plugin "@tailwindcss/typography";
+
+/*
+  Design tokens
+  -------------
+  Grounded in the subject matter: calibration-target orange (the color used on
+  camera-calibration checkerboards / robotics status LEDs) as the single
+  accent, on a graphite-blue "instrument panel" background rather than pure
+  black. Space Grotesk carries headings and body copy; IBM Plex Mono is used
+  only for labels, metadata, tags and numbers -- the small "readout" details.
+*/
+@theme {
+  --color-ink: #0e1116;
+  --color-panel: #161b22;
+  --color-panel-2: #1e2530;
+  --color-line: #2a323d;
+  --color-paper: #eceff3;
+  --color-muted: #8a96a3;
+  --color-signal: #ff8a3d;
+  --color-signal-dim: #b8622c;
+  --color-ok: #6fcf97;
+
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ink);
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    background-image: radial-gradient(
+      var(--color-line) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+    background-attachment: fixed;
+  }
+
+  html[dir="rtl"] {
+    direction: rtl;
+  }
+
+  ::selection {
+    background-color: var(--color-signal);
+    color: var(--color-ink);
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: 0.55rem 1rem;
+    color: var(--color-paper);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .btn:hover {
+    border-color: var(--color-signal);
+    background-color: var(--color-panel-2);
+  }
+
+  .btn-primary {
+    background-color: var(--color-signal);
+    border-color: var(--color-signal);
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-signal-dim);
+    border-color: var(--color-signal-dim);
+  }
+
+  .panel {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+  }
+
+  .prose-portfolio {
+    --tw-prose-body: var(--color-paper);
+    --tw-prose-headings: var(--color-paper);
+    --tw-prose-links: var(--color-signal);
+    --tw-prose-bold: var(--color-paper);
+    --tw-prose-bullets: var(--color-signal);
+    --tw-prose-hr: var(--color-line);
+    --tw-prose-quotes: var(--color-muted);
+    --tw-prose-quote-borders: var(--color-signal);
+    --tw-prose-code: var(--color-paper);
+    --tw-prose-pre-bg: var(--color-panel);
+    --tw-prose-th-borders: var(--color-line);
+    --tw-prose-td-borders: var(--color-line);
+    max-width: 68ch;
+  }
+}

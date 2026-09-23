@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import FeaturedProject from "../../../components/FeaturedProject.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+import { useTranslations } from "../../../i18n/utils";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
+
+const { lang } = Astro.params as { lang: "en" | "ar" };
+const t = useTranslations(lang);
+
+const allProjects = await getCollection("projects", ({ id }) =>
+  id.startsWith(`${lang}/`),
+);
+const featured = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const other = allProjects
+  .filter((p) => !p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const data = {
+  title: t("nav.projects"),
+  description:
+    lang === "ar"
+      ? "مشاريع في الرؤية الحاسوبية والروبوتات والأنظمة المستقلة والميكاترونكس."
+      : "Projects in computer vision, robotics, autonomous systems, and mechatronics.",
+  author: t("name"),
+};
+---
+
+<BaseLayout data={data}>
+  <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-10">
+    {t("nav.projects")}
+  </h1>
+
+  <section class="max-w-6xl mx-auto">
+    <p class="label mb-5">{t("projects.featured")}</p>
+    <div class="grid gap-5">
+      {featured.map((p) => <FeaturedProject project={p} />)}
+    </div>
+
+    {
+      other.length > 0 && (
+        <>
+          <p class="label mt-12 mb-5">{t("projects.other")}</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {other.map((p) => (
+              <ProjectCard project={p} />
+            ))}
+          </div>
+        </>
+      )
+    }
+  </section>
+</BaseLayout>

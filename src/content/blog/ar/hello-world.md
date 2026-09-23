@@ -2,7 +2,7 @@
 url: "hello-world"
 title: "Hello World"
 date: "2024-09-23T12:00:00+03:00"
-description: "المنسور الاو في المدونة"
+description: "المنشور الأول في المدونة"
 author: "بسام أحمد"
 tags: ["development"]
 image: {

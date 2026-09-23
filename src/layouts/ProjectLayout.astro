@@ -1,0 +1,73 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const { data } = Astro.props;
+data.pageType = "article";
+data.description = data.description || data.summary;
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
+---
+
+<BaseLayout data={data}>
+  <article class="max-w-3xl mx-auto">
+    <a
+      href={`/${pageLang}/projects/`}
+      class="label hover:text-signal transition-colors"
+    >
+      &larr;
+      {t("project.back")}
+    </a>
+
+    {data.role && <p class="label mt-6">{data.role}</p>}
+    <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mt-2 mb-4">
+      {data.title}
+    </h1>
+    <p class="text-muted text-lg max-w-[65ch]">{data.summary}</p>
+
+    <div class="flex flex-wrap gap-2 mt-5">
+      {data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+    </div>
+
+    <div class="flex flex-wrap gap-3 mt-6">
+      {
+        data.github && (
+          <a href={data.github} target="_blank" rel="noopener noreferrer" class="btn">
+            {t("project.repo")}
+          </a>
+        )
+      }
+      {
+        data.demo && (
+          <a href={data.demo} target="_blank" rel="noopener noreferrer" class="btn">
+            {t("project.demo")}
+          </a>
+        )
+      }
+      {
+        data.paper && (
+          <a href={data.paper} target="_blank" rel="noopener noreferrer" class="btn">
+            {t("project.paper")}
+          </a>
+        )
+      }
+    </div>
+
+    <img
+      src={data.image.url}
+      alt={data.image.alt}
+      class="w-full rounded-lg border border-line my-10"
+    />
+
+    <div class="panel p-5 mb-10">
+      <p class="label mb-2">{t("project.stack")}</p>
+      <div class="flex flex-wrap gap-2">
+        {data.stack.map((s: string) => <span class="tag">{s}</span>)}
+      </div>
+    </div>
+
+    <div class="prose prose-invert prose-portfolio">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,4 +1,4 @@
-# My Portfolio
+# Bassam Ahmad -- Portfolio
 
 This is my portfolio. I built it with astrojs. [view it](https://bassamahmad.netlify.app).
 
@@ -23,7 +23,10 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  yarn install
+  npm install
 ```
 
 Start the server
+```bash
+  npm run dev
+```

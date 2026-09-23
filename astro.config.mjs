@@ -1,21 +1,25 @@
-import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bassamahmad.com',
-  integrations: [tailwind(), sitemap({
-    entryLimit: 10000,
-    i18n: {
-      defaultLocale: 'ar',
-      locales: {
-        ar: 'ar',
-        en: 'en-US',
+  site: "https://bassamahmad.com",
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [
+    sitemap({
+      entryLimit: 10000,
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en-US",
+          ar: "ar",
+        },
       },
-    },
-  }),
+    }),
     partytown({
       config: {
         forward: ["dataLayer.push"],

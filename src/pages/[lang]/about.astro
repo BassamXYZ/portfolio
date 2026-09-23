@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { about, person } from "../../data/site";
+import { alsoComfortableWith } from "../../data/skills";
+import { useTranslations } from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
+
+const { lang } = Astro.params as { lang: "en" | "ar" };
+const t = useTranslations(lang);
+const content = about[lang];
+
+const data = {
+  title: content.title,
+  description: content.paragraphs[0],
+  author: t("name"),
+};
+---
+
+<BaseLayout data={data}>
+  <article class="max-w-2xl mx-auto">
+    <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-8">
+      {content.title}
+    </h1>
+    <div class="space-y-5 text-lg text-paper/90 leading-relaxed">
+      {content.paragraphs.map((p: string) => <p>{p}</p>)}
+    </div>
+
+    <div class="panel p-5 mt-10 text-sm text-muted">
+      {alsoComfortableWith[lang]}
+    </div>
+
+    <div class="flex flex-wrap gap-3 mt-8">
+      <a href={person.cvPath} class="btn btn-primary">{t("cta.downloadCv")}</a>
+      <a href={`mailto:${person.email}`} class="btn">{t("cta.contact")}</a>
+    </div>
+  </article>
+</BaseLayout>

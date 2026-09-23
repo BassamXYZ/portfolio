@@ -1,8 +1,17 @@
 ---
-const { url, icon, username } = Astro.props;
+interface Props {
+  url: string;
+  label: string;
+}
+const { url, label } = Astro.props;
 ---
 
-<a href={url} class="text-teal-600 hover:text-blue-600 m-3">
-  <i class={icon}></i>
-  {username}
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={label}
+  class="inline-flex items-center justify-center w-9 h-9 rounded-md border border-line text-muted hover:text-signal hover:border-signal transition-colors mx-1"
+>
+  <slot />
 </a>

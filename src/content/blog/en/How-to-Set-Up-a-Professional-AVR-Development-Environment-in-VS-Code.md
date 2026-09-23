@@ -6,13 +6,13 @@ description: "A Guide for Developers to Set Up a Professional AVR Development En
 author: "Bassam Ahmad"
 tags: ["development", "AVR", "microcontroller", "VS Code", "Embedded systems"]
 image: {
-  url: "avr-with-vscode.webp",
+  url: "/images/avr-with-vscode.webp",
   alt: "Cover image: Computer secreen with VS Code and Arduino IDE oppened"
 }
 ---
 # How to Set Up a Professional AVR Development Environment in VS Code
 
-![Cover image: Computer secreen with VS Code and Arduino IDE oppened](/avr-with-vscode.webp)
+![Cover image: Computer secreen with VS Code and Arduino IDE oppened](/images/avr-with-vscode.webp)
 
 ---
 

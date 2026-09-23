@@ -6,13 +6,13 @@ description: "A Guide for Developers to Choose the Right Open Source License for
 author: "Bassam Ahmad"
 tags: ["development", "open source"]
 image: {
-  url: "choosing-the-right-open-source-license.webp",
+  url: "/images/choosing-the-right-open-source-license.webp",
   alt: "main post image: a justice scale with words 'Open source'"
 }
 ---
 # **Choosing the Right Open Source License: A Guide for Developers**
 
-![main post image: a justice scale with words 'Open source'](/choosing-the-right-open-source-license.webp)
+![main post image: a justice scale with words 'Open source'](/images/choosing-the-right-open-source-license.webp)
 
 So, you’ve just built an awesome open source project. Maybe it’s a slick new JavaScript library, a game-changing CLI tool, or even the next big framework. But hold on—before you hit “publish,” there’s one critical question to answer: *What license should you use?*
 
@@ -54,7 +54,7 @@ Still fuzzy? Let’s compare popular licenses side-by-side:
 
 ### **Key Considerations Before You Commit**
 
-![Illustration for Key Considerations Before You Commit Section](/key-considerations-before-you-commit-en.svg)
+![Illustration for Key Considerations Before You Commit Section](/images/key-considerations-before-you-commit-en.svg)
 
 #### 1. **What’s Your Goal?**
 

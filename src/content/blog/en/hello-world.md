@@ -12,8 +12,8 @@ image: {
 ---
 # Hello World
 
-Hello evryone I'm Bassam and this is my first blog post.
-I will share on this blog about anything I am interrested in. It wll be more about tech and programming but sometimes I will post about other things like math and games.
+Hello everyone I'm Bassam and this is my first blog post.
+I will share on this blog about anything I am interested in. It will be more about tech and programming but sometimes I will post about other things like math and games.
 Tell me your suggestions about what should I post next.
 
-Godbye, see you in next post.
+Goodbye, see you in next post.
