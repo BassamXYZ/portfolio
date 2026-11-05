@@ -10,10 +10,6 @@ image: {
   alt: "main post image: a justice scale with words 'Open source'"
 }
 ---
-# **Choosing the Right Open Source License: A Guide for Developers**
-
-![main post image: a justice scale with words 'Open source'](/images/choosing-the-right-open-source-license.webp)
-
 So, you’ve just built an awesome open source project. Maybe it’s a slick new JavaScript library, a game-changing CLI tool, or even the next big framework. But hold on—before you hit “publish,” there’s one critical question to answer: *What license should you use?*
 
 Picking the right open source license isn’t just a formality. It’s a decision that shapes how others can use, modify, and share your work. Choose wrong, and you might accidentally limit your project’s growth, alienate contributors, or even expose yourself to legal risks. Let’s break down how to navigate this maze without losing your sanity.

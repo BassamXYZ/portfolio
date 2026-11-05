@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+// Astro serves this for any unmatched route regardless of the URL prefix,
+// so recover the intended language the same way every other page does;
+// getLangFromUrl falls back to the default when the path has no lang.
+const pageLang = getLangFromUrl(Astro.url);
+const t = useTranslations(pageLang);
+
+const copy = {
+  en: {
+    eyebrow: "404 -- NO DETECTION",
+    title: "Nothing found at this position.",
+    body: "The page you're looking for has moved, been renamed, or never existed. Here's how to get back on course.",
+  },
+  ar: {
+    eyebrow: "404 -- لا يوجد اكتشاف",
+    title: "لا يوجد شيء في هذا الموضع.",
+    body: "الصفحة التي تبحث عنها انتقلت أو تغيّر اسمها أو لم تكن موجودة أصلًا. إليك طريقك للعودة.",
+  },
+};
+const c = copy[pageLang];
+
+const data = {
+  title: pageLang === "ar" ? "الصفحة غير موجودة" : "Page not found",
+  description: c.body,
+  author: t("name"),
+};
+---
+
+<BaseLayout data={data}>
+  <section class="max-w-xl mx-auto py-16 text-center" id="notfound-root">
+    <div class="relative w-28 h-28 mx-auto mb-8">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+        <g fill="none" stroke="#8A96A3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+          <path d="M14 24 V15.5 A1.5 1.5 0 0 1 15.5 14 H24"/>
+          <path d="M50 24 V15.5 A1.5 1.5 0 0 0 48.5 14 H40"/>
+          <path d="M14 40 V48.5 A1.5 1.5 0 0 0 15.5 50 H24"/>
+          <path d="M50 40 V48.5 A1.5 1.5 0 0 1 48.5 50 H40"/>
+        </g>
+        <g stroke="#FF8A3D" stroke-width="4" stroke-linecap="round">
+          <line x1="24" y1="24" x2="40" y2="40"/>
+          <line x1="40" y1="24" x2="24" y2="40"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="label mb-3" id="nf-eyebrow">{c.eyebrow}</p>
+    <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight mb-4" id="nf-title">
+      {c.title}
+    </h1>
+    <p class="text-muted mb-8" id="nf-body">{c.body}</p>
+
+    <div class="flex flex-wrap justify-center gap-3" id="nf-links">
+      <a href={`/${pageLang}/`} class="btn btn-primary" data-key="home">{t("nav.home")}</a>
+      <a href={`/${pageLang}/projects/`} class="btn" data-key="projects">{t("nav.projects")}</a>
+      <a href={`/${pageLang}/blog/`} class="btn" data-key="blog">{t("nav.blog")}</a>
+    </div>
+  </section>
+
+  <script>
+    // Static hosts serve this same file for every unmatched route, including
+    // /ar/* paths, so the language above was picked at build time and may not
+    // match what the visitor actually typed. Correct it on the client.
+    const isArabic = window.location.pathname.startsWith("/ar");
+    if (isArabic) {
+      document.documentElement.lang = "ar";
+      document.documentElement.dir = "rtl";
+
+      const copy = {
+        eyebrow: "404 -- لا يوجد اكتشاف",
+        title: "لا يوجد شيء في هذا الموضع.",
+        body: "الصفحة التي تبحث عنها انتقلت أو تغيّر اسمها أو لم تكن موجودة أصلًا. إليك طريقك للعودة.",
+        home: "الرئيسية",
+        projects: "المشاريع",
+        blog: "المدونة",
+      };
+
+      const eyebrow = document.getElementById("nf-eyebrow");
+      const title = document.getElementById("nf-title");
+      const body = document.getElementById("nf-body");
+      if (eyebrow) eyebrow.textContent = copy.eyebrow;
+      if (title) title.textContent = copy.title;
+      if (body) body.textContent = copy.body;
+
+      document.querySelectorAll<HTMLAnchorElement>("#nf-links a").forEach((a) => {
+        const key = a.dataset.key as "home" | "projects" | "blog";
+        a.textContent = copy[key];
+        a.href = a.href.replace("/en/", "/ar/");
+      });
+    }
+  </script>
+</BaseLayout>

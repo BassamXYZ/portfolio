@@ -2,6 +2,15 @@
 import BaseLayout from "./BaseLayout.astro";
 const { data } = Astro.props;
 data.pageType = "article";
+data.schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: data.title,
+  description: data.description,
+  datePublished: data.date,
+  author: { "@type": "Person", name: data.author || "Bassam Ahmad" },
+  ...(data.image?.url && { image: data.image.url }),
+};
 ---
 
 <BaseLayout data={data}>
@@ -15,7 +24,9 @@ data.pageType = "article";
         <img
           src={data.image.url}
           alt={data.image.alt}
-          class="w-full rounded-lg border border-line mb-8"
+          width="1200"
+          height="675"
+          class="w-full aspect-video object-cover rounded-lg border border-line mb-8"
         />
       )
     }

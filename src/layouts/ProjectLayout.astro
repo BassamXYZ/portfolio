@@ -5,6 +5,17 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const { data } = Astro.props;
 data.pageType = "article";
 data.description = data.description || data.summary;
+data.schema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: data.title,
+  description: data.summary,
+  datePublished: data.date,
+  creator: { "@type": "Person", name: "Bassam Ahmad" },
+  keywords: data.tags?.join(", "),
+  image: data.image?.url,
+  ...(data.github && { codeRepository: data.github }),
+};
 const pageLang = getLangFromUrl(Astro.url);
 const t = useTranslations(pageLang);
 ---
@@ -56,7 +67,9 @@ const t = useTranslations(pageLang);
     <img
       src={data.image.url}
       alt={data.image.alt}
-      class="w-full rounded-lg border border-line my-10"
+      width="1200"
+      height="675"
+      class="w-full aspect-video object-cover rounded-lg border border-line my-10"
     />
 
     <div class="panel p-5 mb-10">

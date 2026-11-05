@@ -10,11 +10,6 @@ image: {
   alt: "Cover image: Computer secreen with VS Code and Arduino IDE oppened"
 }
 ---
-# How to Set Up a Professional AVR Development Environment in VS Code
-
-![Cover image: Computer secreen with VS Code and Arduino IDE oppened](/images/avr-with-vscode.webp)
-
----
 
 ## Introduction: Why Make the Switch?
 

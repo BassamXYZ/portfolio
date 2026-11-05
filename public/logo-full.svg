@@ -1,0 +1,13 @@
+<svg viewBox="0 0 340 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="340" height="64" rx="14" fill="#0E1116"/>
+  <g fill="none" stroke="#FF8A3D" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 24 V15.5 A1.5 1.5 0 0 1 15.5 14 H24"/>
+    <path d="M50 24 V15.5 A1.5 1.5 0 0 0 48.5 14 H40"/>
+    <path d="M14 40 V48.5 A1.5 1.5 0 0 0 15.5 50 H24"/>
+    <path d="M50 40 V48.5 A1.5 1.5 0 0 1 48.5 50 H40"/>
+  </g>
+  <circle cx="32" cy="32" r="5.5" fill="#FF8A3D"/>
+
+  <text x="82" y="30" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="600" fill="#ECEFF3">Bassam Ahmad</text>
+  <text x="82" y="50" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="0.5" fill="#8A96A3">MECHATRONICS -- AI &amp; ROBOTICS</text>
+</svg>

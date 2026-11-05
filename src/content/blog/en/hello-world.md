@@ -2,7 +2,7 @@
 url: "hello-world"
 title: "Hello World"
 date: "2024-09-23T12:00:00+03:00"
-description: "First post on this blog"
+description: "The first post on this blog -- what I plan to write about here: tech, programming, math, and the occasional game."
 author: "Bassam Ahmad"
 tags: ["development"]
 image: {
@@ -10,8 +10,6 @@ image: {
   alt: ""
 }
 ---
-# Hello World
-
 Hello everyone I'm Bassam and this is my first blog post.
 I will share on this blog about anything I am interested in. It will be more about tech and programming but sometimes I will post about other things like math and games.
 Tell me your suggestions about what should I post next.

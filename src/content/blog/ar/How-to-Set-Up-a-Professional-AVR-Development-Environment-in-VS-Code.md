@@ -10,11 +10,6 @@ image: {
   alt: "صورة الغلاف: شاشة حاسب تظهر VS Code و Arduino IDE"
 }
 ---
-# كيف اقوم بإعداد بيئة تطوير احترافية لـمتحكمات AVR في VS Code
-
-![صورة الغلاف: شاشة حاسب تظهر VS Code و Arduino IDE](/images/avr-with-vscode.webp)
-
----
 
 ## مقدمة: لماذا يجب عليك التحول؟
 
