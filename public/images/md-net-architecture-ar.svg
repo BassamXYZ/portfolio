@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 790" width="1200" height="790" lang="ar" direction="rtl" role="img" aria-label="معمارية MD-Net">
+<title>معمارية MD-Net</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#475569"/></marker>
+<marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b45309"/></marker></defs>
+<style>
+text{direction:rtl;unicode-bidi:isolate;font-family:"Segoe UI","Noto Sans Arabic","Noto Sans",Tahoma,"DejaVu Sans",Arial,sans-serif;fill:#0f172a;text-anchor:middle}
+.t{font-size:15px}.b{font-size:16px;font-weight:700}.sm{font-size:12.5px;fill:#475569}.h{font-size:18px;font-weight:700}.big{font-size:22px;font-weight:700}
+.ln{fill:none;stroke:#475569;stroke-width:2}.dl{fill:none;stroke:#b45309;stroke-width:2;stroke-dasharray:6 5}
+.bg{fill:#f8fafc;stroke:#cbd5e1}.pn{fill:#fff;stroke:#cbd5e1}.nn{fill:#dbeafe;stroke:#2563eb;stroke-width:1.6}
+.ph{fill:#ccfbf1;stroke:#0d9488;stroke-width:1.6}.ls{fill:#fef3c7;stroke:#d97706;stroke-width:1.6}
+.io{fill:#fff;stroke:#475569;stroke-width:1.6}.fr{fill:#eff6ff;stroke:#93c5fd;stroke-width:1.5;stroke-dasharray:2 0}
+.op{fill:#fff;stroke:#475569;stroke-width:2}
+</style>
+<rect x="1" y="1" width="1198" height="788" rx="18" class="bg"/>
+<text x="600" y="38" class="h">معمارية MD-Net</text>
+<text x="600" y="64" class="sm">المسار العام (نموذج التصوير الفيزيائي)</text>
+<rect x="40" y="170" width="115" height="70" rx="10" class="io"/>
+<text x="97.5" y="200" class="b">المدخل I</text>
+<text x="97.5" y="222" class="sm">صورة متدهورة</text>
+<path d="M155 205H200" class="ln"/>
+<path d="M200 115V290" class="ln"/>
+<path d="M200 115H250" class="ln" marker-end="url(#ah)"/>
+<path d="M200 205H250" class="ln" marker-end="url(#ah)"/>
+<path d="M200 290H250" class="ln" marker-end="url(#ah)"/>
+<rect x="250" y="87" width="190" height="56" rx="10" class="nn"/>
+<text x="345" y="112" class="b">SRD</text>
+<text x="345" y="132" class="sm">إشعاع المشهد</text>
+<rect x="250" y="177" width="190" height="56" rx="10" class="nn"/>
+<text x="345" y="202" class="b">TMD</text>
+<text x="345" y="222" class="sm">خريطة النفاذ</text>
+<rect x="250" y="262" width="190" height="56" rx="10" class="ph"/>
+<text x="345" y="287" class="b">تمويه غاوسي</text>
+<text x="345" y="307" class="sm">ضوء الخلفية</text>
+<path d="M440 115H470" class="ln" marker-end="url(#ah)"/>
+<rect x="470" y="91" width="100" height="48" rx="10" class="io"/>
+<text x="520" y="123" class="big" style="direction:ltr;unicode-bidi:isolate">J</text>
+<path d="M440 205H470" class="ln" marker-end="url(#ah)"/>
+<rect x="470" y="181" width="100" height="48" rx="10" class="io"/>
+<text x="520" y="213" class="big" style="direction:ltr;unicode-bidi:isolate">t</text>
+<path d="M440 290H470" class="ln" marker-end="url(#ah)"/>
+<rect x="470" y="266" width="100" height="48" rx="10" class="io"/>
+<text x="520" y="298" class="big" style="direction:ltr;unicode-bidi:isolate">B</text>
+<path d="M570 115H610V190H640" class="ln" marker-end="url(#ah)"/>
+<path d="M570 205H640" class="ln" marker-end="url(#ah)"/>
+<path d="M570 290H610V225H640" class="ln" marker-end="url(#ah)"/>
+<rect x="640" y="165" width="230" height="80" rx="10" class="ph"/>
+<text x="755" y="190" class="b">إعادة البناء الفيزيائية</text>
+<text x="755" y="224" class="t" style="direction:ltr;unicode-bidi:isolate">I′ = J·t + B·(1−t)</text>
+<path d="M870 205H930" class="ln" marker-end="url(#ah)"/>
+<rect x="930" y="62" width="230" height="44" rx="10" class="ls"/>
+<text x="975" y="90" class="b" style="direction:ltr;unicode-bidi:isolate">L<tspan font-size="12" dy="4">M</tspan></text>
+<text x="1072" y="89" class="sm">خطأ مربعي مع المرجع</text>
+<rect x="930" y="112" width="230" height="44" rx="10" class="ls"/>
+<text x="975" y="140" class="b" style="direction:ltr;unicode-bidi:isolate">L<tspan font-size="12" dy="4">C</tspan></text>
+<text x="1072" y="139" class="sm">افتراض العالم الرمادي</text>
+<rect x="930" y="185" width="230" height="44" rx="10" class="ls"/>
+<text x="975" y="213" class="b" style="direction:ltr;unicode-bidi:isolate">L<tspan font-size="12" dy="4">A</tspan></text>
+<text x="1072" y="212" class="sm">خطأ مربعي بين I و I′</text>
+<text x="975" y="90" class="b" direction="ltr" unicode-bidi="isolate" style="display:none"></text>
+<path d="M570 115H900" class="dl"/>
+<path d="M900 84V134" class="dl"/>
+<path d="M900 84H928" class="dl" marker-end="url(#ah)"/>
+<path d="M900 134H928" class="dl" marker-end="url(#ahd)"/>
+<path d="M97 240V338H1045V229" class="dl"/>
+<path d="M1045 338V231" class="dl" marker-end="url(#ahd)"/>
+<rect x="30" y="360" width="1140" height="375" rx="14" class="pn"/>
+<text x="600" y="392" class="h">كتلة SRD / TMD: البنية نفسها بأوزان منفصلة</text>
+<rect x="50" y="495" width="90" height="50" rx="10" class="io"/>
+<text x="95" y="516" class="b">مدخل</text>
+<text x="95" y="534" class="sm">3 قنوات</text>
+<path d="M140 520H170" class="ln" marker-end="url(#ah)"/>
+<rect x="170" y="405" width="470" height="235" rx="12" class="fr"/>
+<text x="405" y="425" class="b">MFM: دمج متعدد المقاييس</text>
+<rect x="190" y="415" width="110" height="44" rx="10" class="nn"/>
+<text x="245" y="442" class="t">فرع 3×3</text>
+<path d="M300 437H316" class="ln"/>
+<rect x="190" y="475" width="110" height="44" rx="10" class="nn"/>
+<text x="245" y="502" class="t">فرع 5×5</text>
+<path d="M300 497H316" class="ln"/>
+<rect x="190" y="535" width="110" height="44" rx="10" class="nn"/>
+<text x="245" y="562" class="t">فرع 7×7</text>
+<path d="M300 557H316" class="ln"/>
+<path d="M160 520V437" class="ln"/>
+<path d="M160 520V557" class="ln"/>
+<path d="M160 437H190" class="ln" marker-end="url(#ah)"/>
+<path d="M160 497H190" class="ln" marker-end="url(#ah)"/>
+<path d="M160 557H190" class="ln" marker-end="url(#ah)"/>
+<path d="M316 437V557" class="ln"/>
+<path d="M316 497H345" class="ln" marker-end="url(#ah)"/>
+<rect x="345" y="449" width="175" height="96" rx="10" class="nn"/>
+<text x="432" y="468" class="b">الدمج</text>
+<text x="432" y="486" class="sm" style="direction:ltr;unicode-bidi:isolate">Conv 3×3 + LeakyReLU</text>
+<text x="432" y="502" class="sm" style="direction:ltr;unicode-bidi:isolate">InstanceNorm</text>
+<text x="432" y="518" class="sm" style="direction:ltr;unicode-bidi:isolate">Conv 1×1 + Sigmoid</text>
+<text x="432" y="536" class="sm" style="direction:ltr;unicode-bidi:isolate">→ w₀ w₁ w₂</text>
+<circle cx="590" cy="497" r="22" class="op"/>
+<text x="590" y="505" class="b" style="direction:ltr;unicode-bidi:isolate">Σ</text>
+<text x="590" y="455" class="sm">مجموع موزون</text>
+<text x="590" y="470" class="sm" style="direction:ltr;unicode-bidi:isolate">Σ wᵢ·xᵢ</text>
+<path d="M520 497H566" class="ln" marker-end="url(#ah)"/>
+<path d="M316 557V590H590V521" class="ln" marker-end="url(#ah)"/>
+<text x="450" y="585" class="sm" style="direction:ltr;unicode-bidi:isolate">x₁ x₂ x₃</text>
+<path d="M612 497H650" class="ln"/>
+<path d="M650 452V540" class="ln"/>
+<path d="M650 452H670" class="ln" marker-end="url(#ah)"/>
+<path d="M650 540H670" class="ln" marker-end="url(#ah)"/>
+<text x="631" y="489" class="sm" style="direction:ltr;unicode-bidi:isolate">F</text>
+<rect x="670" y="430" width="130" height="44" rx="10" class="nn"/>
+<text x="735" y="457" class="t">تجميع متوسط عام</text>
+<rect x="670" y="505" width="180" height="70" rx="10" class="nn"/>
+<text x="760" y="531" class="b">مجموعة DWEU ×4</text>
+<text x="760" y="553" class="sm">انتباه البكسل والقناة</text>
+<path d="M800 452H880V473" class="ln" marker-end="url(#ah)"/>
+<path d="M850 540H880V521" class="ln" marker-end="url(#ah)"/>
+<circle cx="880" cy="497" r="22" class="op"/><path d="M868 485L892 509M892 485L868 509" class="ln" style="stroke-width:2.2"/>
+<path d="M902 497H948" class="ln" marker-end="url(#ah)"/>
+<circle cx="970" cy="497" r="22" class="op"/><path d="M958 497H982M970 485V509" class="ln" style="stroke-width:2.2"/>
+<path d="M245 579V625H970V521" class="ln" marker-end="url(#ah)"/>
+<text x="560" y="617" class="sm">وصلة تخطٍّ من فرع 7×7</text>
+<path d="M992 497H1020" class="ln" marker-end="url(#ah)"/>
+<rect x="1020" y="470" width="110" height="54" rx="10" class="nn"/>
+<text x="1075" y="494" class="b" style="direction:ltr;unicode-bidi:isolate">Conv 1×1</text>
+<text x="1075" y="513" class="sm">64 ← 3 قنوات</text>
+<text x="1075" y="555" class="sm">المخرج</text>
+<text x="1075" y="573" class="sm" style="direction:ltr;unicode-bidi:isolate">J (SRD) / t (TMD)</text>
+<text x="600" y="764" class="sm">المعمارية مأخوذة عن ورقة MD-Net (Sci. Rep. 2025) وأُعيد رسمها من كود إعادة التنفيذ. الخطوط المتقطعة: دوال الخسارة أثناء التدريب.</text>
+</svg>

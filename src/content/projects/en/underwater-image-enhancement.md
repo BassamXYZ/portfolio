@@ -4,7 +4,7 @@ url: "underwater-image-enhancement"
 summary: "PyTorch implementation and evaluation of a multiscale deep-learning architecture for restoring degraded underwater images."
 date: "2026-11-05T12:00:00+03:00"
 featured: true
-order: 2
+order: 1
 role: "Research paper re-implementation and evaluation"
 tags: ["Computer vision", "Deep learning", "Image restoration", "Reproducibility"]
 stack: ["Python", "PyTorch", "OpenCV", "NumPy", "scikit-image"]
@@ -12,7 +12,7 @@ github: "https://github.com/BassamXYZ/md-net-underwater-image-enhancement"
 paper: "https://doi.org/10.1038/s41598-025-89109-7"
 image:
   url: "/images/md-net-underwater-image-enhancement.webp"
-  alt: "Underwater photos before and after enhancement, side by side"
+  alt: "Two underwater photos of divers in a 2×2 grid: the raw versions on the left, bluish-green and hazy, and the MD-Net enhanced versions on the right, with natural colours"
 metrics:
   - label: "PSNR (LSUI)"
     value: "21.5 dB"
@@ -35,6 +35,9 @@ What came out of it:
 ## 02 — Problem
 
 An underwater image is not simply a darker or lower-contrast version of a clear one. Water attenuates each wavelength differently, so red disappears within a few metres, and suspended particles scatter light back toward the camera as haze. The task is to recover a clear, naturally coloured image from a single degraded photo.
+
+![Diagram in three steps: absorption makes colours fade with depth (red first), scattering by particles adds haze toward the camera, and the result is a photo with a colour cast, low contrast and haze](/images/md-net-degradation-en.svg)
+*Why underwater photos look blue-green and hazy.*
 
 The paper uses the classic simplified imaging model:
 
@@ -66,20 +69,15 @@ I followed the paper and the authors' public implementation for the architecture
 
 ## 05 — Architecture
 
-```text
-                  ┌────► SRD (scene radiance) ───────► J  enhanced image
-input image I ────┼────► TMD (transmission map) ─────► t
-                  └────► Gaussian blur ──────────────► B  background light
-                                   │
-                  I' = J·t + B·(1 − t)  ──►  compared with I (reconstruction loss)
-```
+![MD-Net architecture. Top: the input image feeds the SRD sub-network (clear image J), the TMD sub-network (transmission map t) and a Gaussian blur (background light B); J, t and B are recombined into I′ = J·t + B·(1−t), and three losses (L_A, L_C, L_M) act during training. Bottom: the SRD/TMD block, with three parallel convolution branches (3×3, 5×5, 7×7) fused by learned weights, a global-pooling branch multiplied with four DWEU units, a skip connection from the 7×7 branch, and a final 1×1 convolution.](/images/md-net-architecture-en.svg)
+*Figure 1. Top: the overall pipeline. Bottom: the block used by both SRD and TMD. Redrawn from my re-implementation code; the architecture is from Yan et al. (2025).*
 
 SRD and TMD use the same architecture with separate weights. Each is built from two custom blocks:
 
 - **Multi-level fusion module (MFM).** Three parallel branches with 3×3, 5×5 and 7×7 convolutions capture detail and context at different receptive fields. A small network predicts per-pixel weights that fuse the three branches.
 - **Dual-layer weight estimation unit (DWEU).** A stack of four residual units, each combining *channel attention* (which feature maps matter) with *pixel attention* (which locations matter).
 
-The blocks are separate, reusable PyTorch modules (`custom_blocks/`), assembled into the full network in `neural_net.py`.
+The blocks are separate, reusable PyTorch modules (`custom_blocks/`), assembled into the full network in `neural_net.py`. In the figure, the dashed lines are the training losses, and the 7×7 branch also feeds the skip connection that is added back before the final 1×1 convolution.
 
 ## 06 — Mathematical formulation
 
@@ -114,6 +112,10 @@ colab_notebook.ipynb   training, testing, baselines, LPIPS, SIFT/Canny, figures
 Three engineering lessons that mattered as much as the model:
 
 - **Clamp before saving.** The network output is unbounded. Converting out-of-range values to 8-bit without clamping makes them wrap around, producing red dots and blown-out patches that looked like model failures. Clamping to [0, 1] fixed them.
+
+![The same enhanced image saved without clamping (red dots and bright patches) and with clamping (correct)](/images/md-net-clamp-bug.webp)
+*The bug that made good outputs look broken: before (left) and after clamping (right).*
+
 - **Verify the checkpoint is loaded.** At one point I misread poor results as a generalisation problem, when the evaluation was actually running an untrained network. I added a sanity check that warns if the output statistics look untrained.
 - **Compare at the same resolution.** UIQM and UCIQE depend on image size, so raw images are resized to the model's input size before comparison.
 
@@ -177,7 +179,6 @@ I do not claim to match or beat the paper. My raw-input numbers differ from the 
 
 Each row is one test image; columns are raw input, CLAHE, Gray-World + CLAHE, MD-Net and the reference. Rows include good, median and the worst cases by PSNR, so the grid does not show only the best results.
 
-<!-- Replace with the three grids exported by the notebook (results/figures/). -->
 ![LSUI: raw, CLAHE, Gray-World + CLAHE, MD-Net, reference](/images/md-net-grid-lsui.webp)
 ![UIEB: raw, CLAHE, Gray-World + CLAHE, MD-Net, reference](/images/md-net-grid-uieb.webp)
 ![UIEB Challenging: raw, CLAHE, Gray-World + CLAHE, MD-Net](/images/md-net-grid-challenging.webp)
@@ -186,9 +187,12 @@ My own visual impression, which is subjective (there was no user study): MD-Net 
 
 ## 11 — Failure cases
 
-- **Red-dominated images.** When an image already has a red cast instead of the usual blue-green, the result is poor. My hypothesis, which I have not verified, is that the network learned to boost red because red is the most attenuated colour in the training data, so images that are already red-heavy get over-corrected.
-- **Residual haze.** Some outputs keep a faint, diffuse whitish veil, and overall contrast is lower than CLAHE-based methods.
+- **Strong colour casts.** An image with a very strong green cast keeps a purple-green tint and noise, and very dark deep-water images turn into a dull purple-brown haze (see the figure below). I have not verified why. One possibility is that such images are rare in the training data, but I have not tested it.
+- **Residual haze.** Some outputs keep a faint, diffuse whitish veil, and overall contrast is lower than CLAHE-based methods. The statue example above shows a mild case.
 - **Questionable references.** Some of the lowest PSNR scores may come from the reference rather than the output: the paper itself points out colour distortion in some reference images of these datasets. I have not checked this image by image.
+
+![Failure cases: a strongly green image whose output keeps a purple-green cast and noise, and a dark deep-water image whose output has a dull purple-brown background, each next to its raw input](/images/md-net-failures.webp)
+*Failure cases, raw input (left) and MD-Net output (right). Top: a very strong green cast leaves a purple-green tint and noise. Bottom: dark deep water becomes a dull purple-brown haze, although the subject is clearer.*
 
 ## 12 — What I learned
 

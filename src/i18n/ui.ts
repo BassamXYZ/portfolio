@@ -31,6 +31,10 @@ export const ui = {
     "cta.contact": "Get in touch",
     "skills.title": "Skills",
     "contact.title": "Contact",
+    "status.title": "STATUS",
+    "status.availability": "availability",
+    "status.seeking": "seeking",
+    "status.next": "next",
   },
   ar: {
     "name": "بسام أحمد",
@@ -57,5 +61,9 @@ export const ui = {
     "cta.contact": "تواصل معي",
     "skills.title": "المهارات",
     "contact.title": "تواصل",
+    "status.title": "الحالة",
+    "status.availability": "التوفّر",
+    "status.seeking": "أبحث عن",
+    "status.next": "لاحقًا",
   },
 } as const;

@@ -53,6 +53,11 @@
     direction: rtl;
   }
 
+  /* Letter-spacing breaks Arabic letter joining. */
+  html[dir="rtl"] .label {
+    letter-spacing: 0;
+  }
+
   ::selection {
     background-color: var(--color-signal);
     color: var(--color-ink);

@@ -29,26 +29,26 @@ const h = hero[pageLang];
   </div>
 
   <div class="panel p-5 font-mono text-sm">
-    <p class="label mb-3">STATUS</p>
+    <p class="label mb-3">{t("status.title")}</p>
     <dl class="space-y-3">
       <div class="flex items-start gap-2">
         <span class="w-2 h-2 rounded-full bg-ok mt-1.5 shrink-0"></span>
         <div>
-          <dt class="text-muted text-xs">availability</dt>
+          <dt class="text-muted text-xs">{t("status.availability")}</dt>
           <dd class="text-paper">{h.status}</dd>
         </div>
       </div>
       <div class="flex items-start gap-2">
         <span class="w-2 h-2 rounded-full bg-signal mt-1.5 shrink-0"></span>
         <div>
-          <dt class="text-muted text-xs">seeking</dt>
+          <dt class="text-muted text-xs">{t("status.seeking")}</dt>
           <dd class="text-paper">{h.availability}</dd>
         </div>
       </div>
       <div class="flex items-start gap-2">
         <span class="w-2 h-2 rounded-full bg-muted mt-1.5 shrink-0"></span>
         <div>
-          <dt class="text-muted text-xs">next</dt>
+          <dt class="text-muted text-xs">{t("status.next")}</dt>
           <dd class="text-paper">{h.education}</dd>
         </div>
       </div>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" lang="en" role="img" aria-label="Why underwater photos look blue-green and hazy">
+<title>Why underwater photos look blue-green and hazy</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#475569"/></marker>
+<marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b"/></marker>
+<marker id="ahy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d97706"/></marker>
+<linearGradient id="g0" x1="0" x2="1"><stop offset="0" stop-color="#ef4444"/><stop offset=".55" stop-color="#ef4444" stop-opacity=".9"/><stop offset="1" stop-color="#ef4444" stop-opacity=".15"/></linearGradient>
+<linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#eab308"/><stop offset=".55" stop-color="#eab308" stop-opacity=".9"/><stop offset="1" stop-color="#eab308" stop-opacity=".15"/></linearGradient>
+<linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#22c55e"/><stop offset=".55" stop-color="#22c55e" stop-opacity=".9"/><stop offset="1" stop-color="#22c55e" stop-opacity=".15"/></linearGradient>
+<linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset=".55" stop-color="#3b82f6" stop-opacity=".9"/><stop offset="1" stop-color="#3b82f6" stop-opacity=".15"/></linearGradient>
+<filter id="cast" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.28 0.25 0.05 0 0  0.05 0.95 0.1 0 0.04  0.05 0.3 0.85 0 0.06  0 0 0 1 0"/></filter>
+<clipPath id="tile"><rect width="150" height="120" rx="8"/></clipPath>
+<g id="scene" clip-path="url(#tile)">
+<rect width="150" height="120" fill="#a5dcf0"/><rect y="55" width="150" height="65" fill="#7cc7e6"/>
+<path d="M0 95 Q40 78 80 92 T150 86 V120 H0Z" fill="#d9b27c"/><path d="M0 108 Q50 98 100 108 T150 104 V120 H0Z" fill="#c4975c"/>
+<path d="M18 96 L26 72 L33 88 L40 66 L48 96Z" fill="#dc2626"/><path d="M112 98 L118 78 L126 98Z" fill="#a855f7"/>
+<ellipse cx="82" cy="52" rx="20" ry="11" fill="#f97316"/><path d="M99 52 L116 41 L116 63Z" fill="#f97316"/><circle cx="72" cy="49" r="2.4" fill="#0f172a"/>
+<ellipse cx="45" cy="34" rx="11" ry="6" fill="#facc15"/><path d="M55 34 L65 28 L65 40Z" fill="#facc15"/></g>
+<style>
+text{direction:ltr;unicode-bidi:isolate;font-family:"Segoe UI","Noto Sans Arabic","Noto Sans",Tahoma,"DejaVu Sans",Arial,sans-serif;fill:#0f172a;text-anchor:middle}
+.t{font-size:15px}.b{font-size:17px;font-weight:700}.sm{font-size:13.5px;fill:#475569}.h{font-size:22px;font-weight:700}.hh{font-size:19px;font-weight:700}.w{font-size:13px;font-weight:700;fill:#0f172a}
+.bg{fill:#f8fafc;stroke:#cbd5e1}.pn{fill:#fff;stroke:#cbd5e1}.ln{fill:none;stroke:#475569;stroke-width:2}
+</style></defs>
+<rect x="1" y="1" width="1198" height="538" rx="18" class="bg"/>
+<text x="600" y="42" class="h">Why underwater photos look blue-green and hazy</text>
+<text x="600" y="70" class="sm">Two physical effects degrade every underwater photo</text>
+<rect x="30" y="92" width="370" height="420" rx="14" class="pn"/>
+<rect x="415" y="92" width="370" height="420" rx="14" class="pn"/>
+<rect x="800" y="92" width="370" height="420" rx="14" class="pn"/>
+<g transform="translate(0 0)">
+<text x="215" y="128" class="hh">1  Absorption</text>
+<text x="215" y="152" class="sm">Water absorbs light by colour,</text>
+<text x="215" y="170" class="sm">so colours fade with depth.</text>
+<path d="M110 226H368" class="ln" marker-end="url(#ah)"/>
+<text x="125" y="215" class="sm">Surface</text>
+<text x="345" y="215" class="sm">Deeper</text>
+<rect x="110" y="244" width="75" height="28" rx="6" fill="url(#g0)"/>
+<text x="68" y="264" class="w">Red</text>
+<rect x="110" y="290" width="130" height="28" rx="6" fill="url(#g1)"/>
+<text x="68" y="310" class="w">Yellow</text>
+<rect x="110" y="336" width="185" height="28" rx="6" fill="url(#g2)"/>
+<text x="68" y="356" class="w">Green</text>
+<rect x="110" y="382" width="255" height="28" rx="6" fill="url(#g3)"/>
+<text x="68" y="402" class="w">Blue</text>
+<text x="215" y="448" class="t">Red fades within a few metres.</text>
+<text x="215" y="470" class="t">Blue travels the deepest.</text>
+</g>
+<text x="600" y="128" class="hh">2  Scattering</text>
+<text x="600" y="152" class="sm">Particles in the water scatter</text>
+<text x="600" y="170" class="sm">light back toward the camera.</text>
+<rect x="435" y="198" width="330" height="232" rx="10" fill="#e0f2fe" stroke="#bae6fd"/>
+<path d="M462 212L580 292" stroke="#d97706" stroke-width="3" fill="none" marker-end="url(#ahy)"/>
+<text x="540" y="226" class="sm">Sunlight</text>
+<circle cx="540" cy="258" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="586" cy="298" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="642" cy="262" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="686" cy="338" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="552" cy="348" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="716" cy="286" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="630" cy="330" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<path d="M586 298L594 382" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M540 258L578 384" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M642 262L616 382" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M686 338L624 392" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M552 348L582 392" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M630 330L610 386" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<rect x="580" y="394" width="44" height="28" rx="6" fill="#475569"/><circle cx="602" cy="408" r="8.5" fill="#e2e8f0" stroke="#0f172a"/><rect x="590" y="389" width="14" height="7" rx="2" fill="#475569"/>
+<text x="705" y="372" class="sm">particles</text>
+<text x="655" y="420" class="sm">camera</text>
+<text x="600" y="458" class="t">The scattered light adds a milky haze.</text>
+<g transform="translate(0 0)">
+<text x="985" y="128" class="hh">3  Result</text>
+<text x="985" y="152" class="sm">The photo ends up with a colour cast,</text>
+<text x="985" y="170" class="sm">low contrast and haze.</text>
+<g transform="translate(820 204)"><use href="#scene"/></g>
+<g transform="translate(1000 204)"><use href="#scene" filter="url(#cast)"/><rect width="150" height="120" rx="8" fill="#9fc9c6" opacity=".45"/></g>
+<path d="M973 264H997" class="ln" marker-end="url(#ah)"/>
+<text x="895" y="342" class="sm">Clear scene</text>
+<text x="1075" y="342" class="sm">Degraded photo</text>
+<rect x="900" y="356" width="170" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<text x="985" y="375" class="w">Colour cast</text>
+<rect x="900" y="386" width="170" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<text x="985" y="405" class="w">Low contrast</text>
+<rect x="900" y="416" width="170" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<text x="985" y="435" class="w">Haze</text>
+<text x="985" y="470" class="sm">MD-Net estimates a clear image</text>
+<text x="985" y="488" class="sm">from this single photo.</text>
+</g>
+<text x="600" y="528" class="sm">Schematic illustration, not to scale.</text>
+</svg>

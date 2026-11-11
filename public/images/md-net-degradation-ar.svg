@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" lang="ar" role="img" aria-label="لماذا تبدو الصور تحت الماء زرقاء-خضراء وضبابية">
+<title>لماذا تبدو الصور تحت الماء زرقاء-خضراء وضبابية</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#475569"/></marker>
+<marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b"/></marker>
+<marker id="ahy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d97706"/></marker>
+<linearGradient id="g0" x1="0" x2="1"><stop offset="0" stop-color="#ef4444"/><stop offset=".55" stop-color="#ef4444" stop-opacity=".9"/><stop offset="1" stop-color="#ef4444" stop-opacity=".15"/></linearGradient>
+<linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#eab308"/><stop offset=".55" stop-color="#eab308" stop-opacity=".9"/><stop offset="1" stop-color="#eab308" stop-opacity=".15"/></linearGradient>
+<linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#22c55e"/><stop offset=".55" stop-color="#22c55e" stop-opacity=".9"/><stop offset="1" stop-color="#22c55e" stop-opacity=".15"/></linearGradient>
+<linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset=".55" stop-color="#3b82f6" stop-opacity=".9"/><stop offset="1" stop-color="#3b82f6" stop-opacity=".15"/></linearGradient>
+<filter id="cast" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.28 0.25 0.05 0 0  0.05 0.95 0.1 0 0.04  0.05 0.3 0.85 0 0.06  0 0 0 1 0"/></filter>
+<clipPath id="tile"><rect width="150" height="120" rx="8"/></clipPath>
+<g id="scene" clip-path="url(#tile)">
+<rect width="150" height="120" fill="#a5dcf0"/><rect y="55" width="150" height="65" fill="#7cc7e6"/>
+<path d="M0 95 Q40 78 80 92 T150 86 V120 H0Z" fill="#d9b27c"/><path d="M0 108 Q50 98 100 108 T150 104 V120 H0Z" fill="#c4975c"/>
+<path d="M18 96 L26 72 L33 88 L40 66 L48 96Z" fill="#dc2626"/><path d="M112 98 L118 78 L126 98Z" fill="#a855f7"/>
+<ellipse cx="82" cy="52" rx="20" ry="11" fill="#f97316"/><path d="M99 52 L116 41 L116 63Z" fill="#f97316"/><circle cx="72" cy="49" r="2.4" fill="#0f172a"/>
+<ellipse cx="45" cy="34" rx="11" ry="6" fill="#facc15"/><path d="M55 34 L65 28 L65 40Z" fill="#facc15"/></g>
+<style>
+text{direction:rtl;unicode-bidi:isolate;font-family:"Segoe UI","Noto Sans Arabic","Noto Sans",Tahoma,"DejaVu Sans",Arial,sans-serif;fill:#0f172a;text-anchor:middle}
+.t{font-size:15px}.b{font-size:17px;font-weight:700}.sm{font-size:13.5px;fill:#475569}.h{font-size:22px;font-weight:700}.hh{font-size:19px;font-weight:700}.w{font-size:13px;font-weight:700;fill:#0f172a}
+.bg{fill:#f8fafc;stroke:#cbd5e1}.pn{fill:#fff;stroke:#cbd5e1}.ln{fill:none;stroke:#475569;stroke-width:2}
+</style></defs>
+<rect x="1" y="1" width="1198" height="538" rx="18" class="bg"/>
+<text x="600" y="42" class="h">لماذا تبدو الصور تحت الماء زرقاء-خضراء وضبابية</text>
+<text x="600" y="70" class="sm">تأثيران فيزيائيان يُضعفان كل صورة تحت الماء</text>
+<rect x="30" y="92" width="370" height="420" rx="14" class="pn"/>
+<rect x="415" y="92" width="370" height="420" rx="14" class="pn"/>
+<rect x="800" y="92" width="370" height="420" rx="14" class="pn"/>
+<g transform="translate(770 0)">
+<text x="215" y="128" class="hh">1  الامتصاص</text>
+<text x="215" y="152" class="sm">يمتص الماء الضوء حسب لونه،</text>
+<text x="215" y="170" class="sm">فتتلاشى الألوان مع العمق.</text>
+<path d="M110 226H368" class="ln" marker-end="url(#ah)"/>
+<text x="125" y="215" class="sm">السطح</text>
+<text x="345" y="215" class="sm">أعمق</text>
+<rect x="110" y="244" width="75" height="28" rx="6" fill="url(#g0)"/>
+<text x="68" y="264" class="w">أحمر</text>
+<rect x="110" y="290" width="130" height="28" rx="6" fill="url(#g1)"/>
+<text x="68" y="310" class="w">أصفر</text>
+<rect x="110" y="336" width="185" height="28" rx="6" fill="url(#g2)"/>
+<text x="68" y="356" class="w">أخضر</text>
+<rect x="110" y="382" width="255" height="28" rx="6" fill="url(#g3)"/>
+<text x="68" y="402" class="w">أزرق</text>
+<text x="215" y="448" class="t">يتلاشى الأحمر خلال أمتار قليلة.</text>
+<text x="215" y="470" class="t">ويصل الأزرق إلى أبعد عمق.</text>
+</g>
+<text x="600" y="128" class="hh">2  التشتت</text>
+<text x="600" y="152" class="sm">تعيد الجسيمات في الماء تشتيت</text>
+<text x="600" y="170" class="sm">الضوء نحو الكاميرا.</text>
+<rect x="435" y="198" width="330" height="232" rx="10" fill="#e0f2fe" stroke="#bae6fd"/>
+<path d="M462 212L580 292" stroke="#d97706" stroke-width="3" fill="none" marker-end="url(#ahy)"/>
+<text x="540" y="226" class="sm">ضوء الشمس</text>
+<circle cx="540" cy="258" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="586" cy="298" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="642" cy="262" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="686" cy="338" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="552" cy="348" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="716" cy="286" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<circle cx="630" cy="330" r="5.5" fill="#94a3b8" stroke="#64748b"/>
+<path d="M586 298L594 382" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M540 258L578 384" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M642 262L616 382" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M686 338L624 392" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M552 348L582 392" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<path d="M630 330L610 386" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahs)"/>
+<rect x="580" y="394" width="44" height="28" rx="6" fill="#475569"/><circle cx="602" cy="408" r="8.5" fill="#e2e8f0" stroke="#0f172a"/><rect x="590" y="389" width="14" height="7" rx="2" fill="#475569"/>
+<text x="705" y="372" class="sm">جسيمات</text>
+<text x="655" y="420" class="sm">كاميرا</text>
+<text x="600" y="458" class="t">يضيف الضوء المشتَّت ضبابًا حليبيًا.</text>
+<g transform="translate(-770 0)">
+<text x="985" y="128" class="hh">3  النتيجة</text>
+<text x="985" y="152" class="sm">تنتهي الصورة بميل لوني</text>
+<text x="985" y="170" class="sm">وتباين منخفض وضباب.</text>
+<g transform="translate(1000 204)"><use href="#scene"/></g>
+<g transform="translate(820 204)"><use href="#scene" filter="url(#cast)"/><rect width="150" height="120" rx="8" fill="#9fc9c6" opacity=".45"/></g>
+<path d="M997 264H973" class="ln" marker-end="url(#ah)"/>
+<text x="1075" y="342" class="sm">مشهد واضح</text>
+<text x="895" y="342" class="sm">صورة متدهورة</text>
+<rect x="900" y="356" width="170" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<text x="985" y="375" class="w">ميل لوني</text>
+<rect x="900" y="386" width="170" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<text x="985" y="405" class="w">تباين منخفض</text>
+<rect x="900" y="416" width="170" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<text x="985" y="435" class="w">ضباب</text>
+<text x="985" y="470" class="sm">تقدّر MD-Net صورة واضحة</text>
+<text x="985" y="488" class="sm">من هذه الصورة الواحدة.</text>
+</g>
+<text x="600" y="528" class="sm">رسم توضيحي مبسّط وليس بمقياس حقيقي.</text>
+</svg>

@@ -2,7 +2,7 @@
 url: "hello-world"
 title: "Hello World"
 date: "2024-09-23T12:00:00+03:00"
-description: "The first post on this blog -- what I plan to write about here: tech, programming, math, and the occasional game."
+description: "The first post on this blog -- what I plan to write about here: Robotics, AI, Engineering, Math, and others"
 author: "Bassam Ahmad"
 tags: ["development"]
 image: {
@@ -10,8 +10,10 @@ image: {
   alt: ""
 }
 ---
-Hello everyone I'm Bassam and this is my first blog post.
-I will share on this blog about anything I am interested in. It will be more about tech and programming but sometimes I will post about other things like math and games.
-Tell me your suggestions about what should I post next.
+Welcome to my blog! I'm Bassam, and this is my very first post.
 
-Goodbye, see you in next post.
+This space is where I'll be sharing my thoughts and experiences on the things I'm most passionate about. You can expect the content to be primarily focused on Robotics and AI, but I'll also be branching out into other areas that fascinate me, like mathematics and games.
+
+I'm excited to start this journey and would love for you to be a part of it. What topics would you like to see me cover first? Let me know in the comments!
+
+Thanks for stopping by, and I'll see you in the next post.
